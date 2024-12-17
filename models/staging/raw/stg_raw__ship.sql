@@ -16,7 +16,7 @@ renamed as (
         cast(ship_cost as FLOAT64) as ship_cost
 
     from source
-    where shipping_fee <> shipping_fee_1
+  --  where shipping_fee = shipping_fee_1
 
 )
 
