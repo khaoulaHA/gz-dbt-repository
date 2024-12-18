@@ -4,6 +4,106 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
+      - name: adwords
+        identifier: raw_gz_adwords       
+        columns : 
+          - name : date_date
+            description: Date of the advertising compaign 
+          - name : paid_source
+            description: Source of the advertising compaign 
+            tests:
+              - accepted_values:
+                  values: ['Adwords']
+          - name : campaign_key
+            description:  Key of the advertising compaign 
+          - name : camPGN_name
+            description:  Name of the advertising compaign 
+          - name : ads_cost
+            description:  Cost of the advertising compaign
+          - name : impression
+            description:  Number of impression in the advertising compaign
+          - name : click
+            description:  Number of click in the advertising compaign
+        tests:
+         - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+              - date_date
+              - campaign_key
+      - name: criteo
+        identifier: raw_gz_criteo
+        columns : 
+          - name : date_date
+            description: Date of the advertising compaign 
+          - name : paid_source
+            description: Source of the advertising compaign 
+            tests:
+              - accepted_values:
+                  values: ['Criteo']
+          - name : campaign_key
+            description:  Key of the advertising compaign 
+          - name : camPGN_name
+            description:  Name of the advertising compaign 
+          - name : ads_cost
+            description:  Cost of the advertising compaign
+          - name : impression
+            description:  Number of impression in the advertising compaign
+          - name : click
+            description:  Number of click in the advertising compaign
+        tests:
+         - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+              - date_date
+              - campaign_key
+      - name: bing
+        identifier: raw_gz_bing
+        columns : 
+          - name : date_date
+            description: Date of the advertising compaign 
+          - name : paid_source
+            description: Source of the advertising compaign
+            tests:
+              - accepted_values:
+                  values: ['Bing'] 
+          - name : campaign_key
+            description:  Key of the advertising compaign 
+          - name : camPGN_name
+            description:  Name of the advertising compaign 
+          - name : ads_cost
+            description:  Cost of the advertising compaign
+          - name : impression
+            description:  Number of impression in the advertising compaign
+          - name : click
+            description:  Number of click in the advertising compaign
+        tests:
+         - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+              - date_date
+              - campaign_key
+      - name: facebook
+        identifier: raw_gz_facebook
+        columns : 
+          - name : date_date
+            description: Date of the advertising compaign 
+          - name : paid_source
+            description: Source of the advertising compaign 
+            tests:
+              - accepted_values:
+                  values: ['Facebook']
+          - name : campaign_key
+            description:  Key of the advertising compaign 
+          - name : camPGN_name
+            description:  Name of the advertising compaign 
+          - name : ads_cost
+            description:  Cost of the advertising compaign
+          - name : impression
+            description:  Number of impression in the advertising compaign
+          - name : click
+            description:  Number of click in the advertising compaign
+        tests:
+         - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+              - date_date
+              - campaign_key
       - name: sales
         identifier: raw_gz_sales
         description: sales of Greenweez / we have on row per product_id found in each orders_id 
